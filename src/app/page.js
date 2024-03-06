@@ -1,95 +1,74 @@
-import Image from "next/image";
+'use client'
 import styles from "./page.module.css";
-
+import StarRating from "./Star";
+import {useState} from 'react'
+import ThumbReview from "./thumbReview";
 export default function Home() {
+
+  const[mark1, setMark1] = useState(0);
+  const[mark2, setMark2] = useState(0);
+  
+  const [fair,setFair] = useState(true);
+  const [good,setGood] = useState(false);
+  const [veryGood,setVeryGood] = useState(false);
+  
+const  handlePrase = (arg) => {
+   console.log(arg)
+  switch(arg){  
+    case 'fair':{
+      setFair(!fair);
+      setGood(false);
+      setVeryGood(false);
+     
+    }
+    break;
+  case 'good':{
+    setGood(!good);
+    setFair(false);
+    setVeryGood(false);
+ }
+ break;
+  case 'veryGood': 
+  {
+    setVeryGood(!veryGood);
+    setFair(false);
+    setGood(false);
+  
+  }
+  break;
+  }
+
+}
+
   return (
     <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+     <h1>Leave a review</h1>
+     <h2>Safety</h2>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+     <p>We adhere to all safety regulations.</p>
+      <StarRating setMarkState={setMark1} number={mark1}/>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+     <h2>Communication</h2>
+     <p>We believe in open and clear communication.</p>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
+     <StarRating setMarkState={setMark2} number={mark2}/>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
+     <h2>Would you recommend Trusting?</h2>
+  <p>rate for the trust.</p>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+    <ThumbReview/>
+
+    <h2>Praise</h2>
+    <p>Please tag your experience with us</p>
+
+    <div>
+      <button className={!fair? styles.btn:styles.activeBtn} onClick={()=>handlePrase('fair')} >Fair</button>
+      <button className={!good? styles.btn:styles.activeBtn} onClick={()=>handlePrase('good')}>good</button>
+      <button className={!veryGood? styles.btn:styles.activeBtn} onClick={()=>handlePrase('veryGood')}>very good</button>
+    </div>
+
+
+     
     </main>
   );
 }
