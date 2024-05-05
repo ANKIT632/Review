@@ -5,4 +5,4 @@ import thumbUpIcon from './thumb-up.png';
 import thumbDowncIcon from './thumb-downc.png';
 import thumbUpcIcon from './thumb-upc.png';
 
-export {starIcon, EmptyStarIcon, thumbDowncIcon, thumbUpcIcon, thumbDownIcon, thumbUpIcon};
+export {starIcon, EmptyStarIcon, thumbDowncIcon, thumbUpcIcon, thumbDownIcon, thumbUpIcon}; 
