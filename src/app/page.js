@@ -9,11 +9,11 @@ export default function Home() {
   const [mark2, setMark2] = useState(0);
 
   const [fair, setFair] = useState(true);
-  const [good, setGood] = useState(false);
+  const [good, setGood] = useState(false); 
   const [veryGood, setVeryGood] = useState(false);
 
   const handlePrase = (arg) => {
-    console.log(arg)
+    
     switch (arg) {
       case 'fair': {
         setFair(!fair);
