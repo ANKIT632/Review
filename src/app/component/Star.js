@@ -1,4 +1,3 @@
-import React from 'react'
 import { EmptyStarIcon, starIcon } from '../icons'
 import Image from 'next/image';
 import style from "../page.module.css";
