@@ -1,5 +1,4 @@
 
-import React from 'react'
 import { thumbUpIcon, thumbDownIcon, thumbUpcIcon, thumbDowncIcon } from '../icons'
 import styles from "../page.module.css";
 import Image from 'next/image'
